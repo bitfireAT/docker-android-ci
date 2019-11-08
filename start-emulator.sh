@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This work is licensed under a Creative Commons Public Domain Mark 1.0 License.
+#
 # Originally written by Ralf Kistner <ralf@embarkmobile.com>, placed to public domain
 # Extended by Ricki Hirner for DAVx5 and other projects
 
