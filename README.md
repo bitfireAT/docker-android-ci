@@ -23,6 +23,9 @@ in a privileged container:
     privileged = true
 ```
 
+For DAVx⁵ and related components, the runner must have the `privileged` tag, 
+because Android tests will requires this Docker tag.
+
 
 How to use with Gitlab CI
 -------------------------
