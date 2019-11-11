@@ -38,10 +38,12 @@ image: registry.gitlab.com/bitfireat/docker-android-emulator:latest
 …
 
 test:
+  tags:
+    # require the privileged tag if the emulator is needed
+    - privileged
   script:
-   - start-emulator.sh
-   - ./gradlew app:check app:connectedCheck
-
+    - start-emulator.sh
+    - ./gradlew app:check app:connectedCheck
   artifacts:
     paths:
       - app/build/outputs/lint-results-debug.html
