@@ -6,7 +6,7 @@
 # Extended by Ricki Hirner for DAVx5 and other projects
 
 echo "Starting headless emulator"
-(cd /sdk/emulator; ./emulator-headless -no-audio -gpu swiftshader_indirect @test &)
+(cd /sdk/emulator; ./emulator -no-window -no-snapshot -no-audio -gpu swiftshader_indirect @test &)
 
 echo "Waiting for emulator adb"
 adb wait-for-device
