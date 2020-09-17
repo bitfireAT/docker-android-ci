@@ -20,9 +20,9 @@ RUN wget -q https://dl.google.com/android/repository/tools_r${VERSION_DOWNLOAD_S
 	unzip /tools.zip -d ${ANDROID_HOME} && \
 	rm -v /tools.zip
 
-ARG VERSION_BUILD_TOOLS="29.0.2"
+ARG VERSION_BUILD_TOOLS="30.0.2"
 ARG VERSION_TARGET_SDK="29"
-ARG VERSION_EMULATOR_SDK="21"
+ARG VERSION_EMULATOR_SDK="23"
 ARG VERSION_EMULATOR="${VERSION_EMULATOR_SDK};default;x86"
 
 ARG SDK_PACKAGES="tools platform-tools build-tools;${VERSION_BUILD_TOOLS} platforms;android-${VERSION_TARGET_SDK} platforms;android-${VERSION_EMULATOR_SDK} system-images;android-${VERSION_EMULATOR}"
