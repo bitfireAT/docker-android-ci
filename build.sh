@@ -2,5 +2,5 @@
 
 IMAGE=registry.gitlab.com/bitfireat/docker-android-emulator .
 
-docker build -t $IMAGE . && docker push $IMAGE
+docker build --compress -t $IMAGE . && docker push $IMAGE
 
