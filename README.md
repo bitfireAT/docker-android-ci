@@ -10,9 +10,40 @@ The used Android emulator uses hardware accelation and thus requires root access
 i.e. a privileged Docker container. Unfortunately, **it won't run with a shared
 runner from gitlab.com**.
 
-It's recommended to install [gitlab-ci-runner](https://docs.gitlab.com/runner/)
-on a root server and run your project's CI based on this Docker image
-in a privileged container:
+It's recommended to install a self-hosted runner on a root server and run your
+project's CI based on this Docker image in a privileged container.
+
+
+How to use with Github
+----------------------
+
+When using with a self-hosted Github runner, specify the workflow like this:
+
+```
+  test_on_emulator:
+    name: Tests with emulator
+    runs-on: privileged
+    container:
+      image: ghcr.io/bitfireat/docker-android-ci:main
+      options: --privileged
+      env:
+        ANDROID_HOME: /sdk
+        ANDROID_AVD_HOME: /root/.android/avd
+    steps:
+	  # …
+
+      - name: Start emulator
+        run: start-emulator.sh
+      - name: Run connected tests
+        run: ./gradlew app:connectedStandardDebugAndroidTest
+```
+
+
+
+How to use with Gitlab
+----------------------
+
+[gitlab-ci-runner](https://docs.gitlab.com/runner/):
 
 ```
 # /etc/gitlab-runner/config.toml
@@ -24,18 +55,15 @@ in a privileged container:
 ```
 
 For DAVx⁵ and related components, the runner must have the `privileged` tag, 
-because Android tests will requires this Docker tag.
+because Android tests will require this tag.
 
-
-How to use with Gitlab CI
--------------------------
 
 Sample `.gitlab-ci.yml`:
 
 ```
-image: registry.gitlab.com/bitfireat/docker-android-emulator:latest
+image: ghcr.io/bitfireat/docker-android-ci:main
 
-…
+# …
 
 test:
   tags:

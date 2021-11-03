@@ -1,10 +1,7 @@
 #!/bin/sh
 
-IMAGE=registry.gitlab.com/bitfireat/docker-android-emulator .
+echo This script is only used to test the Dockerfile locally.
+echo The real image is created by Github CI and stored as a Github package.
 
-#docker build --compress --no-cache -t $IMAGE .
-docker build --compress -t $IMAGE .
-
-
-#&& docker push $IMAGE
+docker build --compress -t docker-android-ci-test .
 
