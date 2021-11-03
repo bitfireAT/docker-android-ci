@@ -23,7 +23,7 @@ RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-7302
 	mkdir -p ${CMDTOOLS_DIR} && mv /cmdline-tools ${CMDTOOLS_LATEST} && rm -v /cmdtools.zip
 
 ARG VERSION_BUILD_TOOLS="30.0.3"
-ARG VERSION_TARGET_SDK="30"
+ARG VERSION_TARGET_SDK="31"
 ARG VERSION_EMULATOR_SDK="23"
 ARG VERSION_EMULATOR="${VERSION_EMULATOR_SDK};default;x86"
 
@@ -38,3 +38,4 @@ RUN (while [ 1 ]; do sleep 1; echo n; done) | avdmanager create avd -n test -k "
 # prepare scripts for emulator control
 COPY start-emulator.sh /usr/bin
 RUN chmod +x /usr/bin/start-emulator.sh
+
