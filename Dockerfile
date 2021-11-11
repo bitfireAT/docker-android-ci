@@ -37,9 +37,10 @@ ARG SDK_PACKAGES="tools platform-tools build-tools;${VERSION_BUILD_TOOLS} platfo
 # install SDK components, create emulator, compress big directories to keep image small
 RUN (while [ 1 ]; do sleep 1; echo y; done) | sdkmanager ${SDK_PACKAGES}; \
 	(while [ 1 ]; do sleep 1; echo; done) | avdmanager create avd -n test -k "system-images;android-${VERSION_EMULATOR}"; \
-	(cd /; tar -cvf root.tar.zstd -I "zstd -T0 -9" root && rm -rf root && tar -cvf sdk.tar.zstd -I "zstd -T0 -9" sdk && rm -rf sdk)
+	(cd /; tar -cf root.tar.zstd -I "zstd -T0 -9" root && rm -rf root && tar -cf sdk.tar.zstd -I "zstd -T0 -9" sdk && rm -rf sdk)
 
 # prepare scripts for emulator control
+COPY extract-sdk.sh /usr/bin
 COPY start-emulator.sh /usr/bin
-RUN chmod +x /usr/bin/start-emulator.sh
+RUN chmod +x /usr/bin/extract-sdk.sh /usr/bin/start-emulator.sh
 

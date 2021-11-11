@@ -5,9 +5,7 @@
 # Originally written by Ralf Kistner <ralf@embarkmobile.com>, placed to public domain
 # Extended by Ricki Hirner for DAVx5 and other projects
 
-echo Extracting SDK and emulator image
-(cd / && tar -xaf root.tar.zstd && rm -f root.tar.zstd)
-(cd / && tar -xaf sdk.tar.zstd && rm -f sdk.tar.zstd)
+/usr/bin/extract-sdk.sh
 
 echo Starting headless emulator
 (cd /sdk/emulator && ./emulator -no-window -no-snapshot -no-audio -gpu swiftshader_indirect @test &)
