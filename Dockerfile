@@ -14,6 +14,7 @@ RUN apt-get -qq update && \
 
 ARG VERSION_DOWNLOAD_SDK="25.2.5"
 ENV ANDROID_HOME "/sdk"
+ENV ANDROID_SDK_ROOT "/sdk"
 ENV CMDTOOLS_DIR "${ANDROID_HOME}/cmdline-tools"
 ENV CMDTOOLS_LATEST "${ANDROID_HOME}/cmdline-tools/latest"
 ENV HOME /root

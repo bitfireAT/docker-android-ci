@@ -8,7 +8,7 @@ Requirements
 
 The used Android emulator uses hardware accelation and thus requires root access,
 i.e. a privileged Docker container. Unfortunately, **it won't run with a shared
-runner from gitlab.com**.
+runner** (neither from Github nor from Gitlab).
 
 It's recommended to install a self-hosted runner on a root server and run your
 project's CI based on this Docker image in a privileged container.
