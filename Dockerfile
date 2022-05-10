@@ -27,8 +27,8 @@ RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-7302
 	unzip -q /cmdtools.zip -d / && \
 	mkdir -p ${CMDTOOLS_DIR} && mv /cmdline-tools ${CMDTOOLS_LATEST} && rm /cmdtools.zip
 
-ARG VERSION_BUILD_TOOLS="30.0.3"
-ARG VERSION_TARGET_SDK="31"
+ARG VERSION_BUILD_TOOLS="32.0.0"
+ARG VERSION_TARGET_SDK="32"
 ARG VERSION_EMULATOR_SDK="23"
 ARG VERSION_EMULATOR="${VERSION_EMULATOR_SDK};default;x86"
 
