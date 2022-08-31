@@ -29,8 +29,8 @@ RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-7302
 
 ARG VERSION_BUILD_TOOLS="32.0.0"
 ARG VERSION_TARGET_SDK="32"
-ARG VERSION_EMULATOR_SDK="29"
-ARG VERSION_EMULATOR="${VERSION_EMULATOR_SDK};default;x86"
+ARG VERSION_EMULATOR_SDK="31"
+ARG VERSION_EMULATOR="${VERSION_EMULATOR_SDK};default;x86_64"
 
 ARG SDK_PACKAGES="tools platform-tools build-tools;${VERSION_BUILD_TOOLS} platforms;android-${VERSION_TARGET_SDK} platforms;android-${VERSION_EMULATOR_SDK} system-images;android-${VERSION_EMULATOR}"
 
