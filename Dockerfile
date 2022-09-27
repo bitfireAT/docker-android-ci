@@ -27,12 +27,12 @@ RUN wget -q https://dl.google.com/android/repository/commandlinetools-linux-7302
 	unzip -q /cmdtools.zip -d / && \
 	mkdir -p ${CMDTOOLS_DIR} && mv /cmdline-tools ${CMDTOOLS_LATEST} && rm /cmdtools.zip
 
-ARG VERSION_BUILD_TOOLS="32.0.0"
-ARG VERSION_TARGET_SDK="32"
+ARG VERSION_BUILD_TOOLS="33.0.0"
+ARG VERSION_COMPILE_SDK="33"
 ARG VERSION_EMULATOR_SDK="31"
 ARG VERSION_EMULATOR="${VERSION_EMULATOR_SDK};default;x86_64"
 
-ARG SDK_PACKAGES="tools platform-tools build-tools;${VERSION_BUILD_TOOLS} platforms;android-${VERSION_TARGET_SDK} platforms;android-${VERSION_EMULATOR_SDK} system-images;android-${VERSION_EMULATOR}"
+ARG SDK_PACKAGES="tools platform-tools build-tools;${VERSION_BUILD_TOOLS} platforms;android-${VERSION_COMPILE_SDK} platforms;android-${VERSION_EMULATOR_SDK} system-images;android-${VERSION_EMULATOR}"
 
 # install SDK components, create emulator, compress big directories to keep image small
 RUN (while [ 1 ]; do sleep 1; echo y; done) | sdkmanager ${SDK_PACKAGES}; \
